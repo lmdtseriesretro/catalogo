@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMDT SERIES RETRO</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #121212; /* Negro */
+            color: #f9a825; /* Naranja */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #fe8100; /* Naranja */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo img {
+            max-width: 150px; /* Ajusta el tamaño del logo */
+        }
+
+        h1 {
+            margin: 10px 0;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s, filter 0.3s;
+            filter: brightness(0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            cursor: pointer; /* Cambia el cursor al pasar por encima */
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            filter: brightness(1);
+        }
+
+        /* Estilos del modal */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #f9a825;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            color: #121212; /* Negro para el texto */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #fe8100; /* Naranja */
+            color: white;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="https://via.placeholder.com/150x50/fe8100/ffffff?text=LMDT+SERIES+RETRO" alt="Logo LMDT SERIES RETRO">
+        </div>
+        <h1>CATÁLOGO - SERIES / PELÍCULAS</h1>
+    </header>
+
+    <div class="gallery">
+        <img src="https://media.vandal.net/m/12/128350/silent-hill-2-remake-202410813414824_13.jpg" alt="Imagen 1" onclick="openModal('Imagen 1', 'Descripción de la imagen 1')">
+        <img src="https://media.vandal.net/m/12/128350/silent-hill-2-remake-202410813414824_13.jpg" alt="Imagen 2" onclick="openModal('Imagen 2', 'Descripción de la imagen 2')">
+        <img src="https://media.vandal.net/m/12/128350/silent-hill-2-remake-202410813414824_13.jpg" alt="Imagen 3" onclick="openModal('Imagen 3', 'Descripción de la imagen 3')">
+        <img src="https://media.vandal.net/m/12/128350/silent-hill-2-remake-202410813414824_13.jpg" alt="Imagen 4" onclick="openModal('Imagen 4', 'Descripción de la imagen 4')">
+        <img src="https://media.vandal.net/m/12/128350/silent-hill-2-remake-202410813414824_13.jpg" alt="Imagen 5" onclick="openModal('Imagen 5', 'Descripción de la imagen 5')">
+        <img src="https://media.vandal.net/m/12/128350/silent-hill-2-remake-202410813414824_13.jpg" alt="Imagen 6" onclick="openModal('Imagen 6', 'Descripción de la imagen 6')">
+        <img src="https://media.vandal.net/m/12/128350/silent-hill-2-remake-202410813414824_13.jpg" alt="Imagen 7" onclick="openModal('Imagen 7', 'Descripción de la imagen 7')">
+        <img src="https://media.vandal.net/m/12/128350/silent-hill-2-remake-202410813414824_13.jpg" alt="Imagen 8" onclick="openModal('Imagen 8', 'Descripción de la imagen 8')">
+        <img src="https://media.vandal.net/m/12/128350/silent-hill-2-remake-202410813414824_13.jpg" alt="Imagen 9" onclick="openModal('Imagen 9', 'Descripción de la imagen 9')">
+        <img src="https://media.vandal.net/m/12/128350/silent-hill-2-remake-202410813414824_13.jpg" alt="Imagen 10" onclick="openModal('Imagen 10', 'Descripción de la imagen 10')">
+        <img src="https://media.vandal.net/m/12/128350/silent-hill-2-remake-202410813414824_13.jpg" alt="Imagen 11" onclick="openModal('Imagen 11', 'Descripción de la imagen 11')">
+        <img src="https://media.vandal.net/m/12/128350/silent-hill-2-remake-202410813414824_13.jpg" alt="Imagen 12" onclick="openModal('Imagen 12', 'Descripción de la imagen 12')">
+        <img src="https://media.vandal.net/m/12/128350/silent-hill-2-remake-202410813414824_13.jpg" alt="Imagen 13" onclick="openModal('Imagen 13', 'Descripción de la imagen 13')">
+        <img src="https://media.vandal.net/m/12/128350/silent-hill-2-remake-202410813414824_13.jpg" alt="Imagen 14" onclick="openModal('Imagen 14', 'Descripción de la imagen 14')">
+        <img src="https://media.vandal.net/m/12/128350/silent-hill-2-remake-202410813414824_13.jpg" alt="Imagen 15" onclick="openModal('Imagen 15', 'Descripción de la imagen 15')">
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <img id="modalImage" src="" alt="Imagen del Modal" style="width: 100%; border-radius: 10px;">
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Página <a href="https://www.ejemplo.com" target="_blank">2</a></p>
+        <p>Página <a href="https://www.ejemplo.com" target="_blank">3</a></p>
+    </footer>
+
+    <script>
+        function openModal(title, description) {
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("modalImage").src = "https://media.vandal.net/m/12/128350/silent-hill-2-remake-202410813414824_13.jpg"; // Cambia la imagen si es necesario
+            document.getElementById("modalDescription").innerText = description;
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Cierra el modal si el usuario hace clic fuera de él
+        window.onclick = function (event) {
+            const modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
